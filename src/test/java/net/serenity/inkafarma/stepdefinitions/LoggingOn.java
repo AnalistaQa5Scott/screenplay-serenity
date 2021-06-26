@@ -8,6 +8,8 @@ import net.serenity.inkafarma.tasks.login.DoLogin;
 import net.serenity.inkafarma.tasks.login.LoginForm;
 import net.serenity.inkafarma.tasks.login.VisibleMessage;
 import net.serenity.inkafarma.tasks.navigate.Navigate;
+import net.serenity.inkafarma.tasks.utilities.UploadA;
+import net.serenitybdd.core.Serenity;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.abilities.BrowseTheWeb;
@@ -15,6 +17,8 @@ import net.serenitybdd.screenplay.ensure.Ensure;
 import net.thucydides.core.annotations.Managed;
 import org.openqa.selenium.WebDriver;
 
+import java.io.IOException;
+import java.nio.file.Paths;
 import java.util.List;
 
 import static net.serenitybdd.screenplay.GivenWhenThen.givenThat;
@@ -39,10 +43,11 @@ public class LoggingOn {
     }
 
     @Then("{actor} should be able to log in and see his name")
-    public void shouldSeeHisName(Actor actor) {
+    public void shouldSeeHisName(Actor actor) throws IOException {
         actor.attemptsTo(
                 Ensure.that(LoginForm.NAME_USER_LOGGED).hasText("Alexander Garcia")
         );
+        Serenity.recordReportData().withTitle("Name Logged").andContents("My name is Alexander Garcia");
 //        actor.should(seeThat(VisibleMessage.nameLogged(), equalTo("Alexander Garcia")));
     }
 
