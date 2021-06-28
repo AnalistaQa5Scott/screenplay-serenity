@@ -52,8 +52,7 @@ public class LoggingOn {
     }
 
     @When("{actor} should be able to login in the application")
-    public void enteEmailAndPassword(Actor actor, String email, String password) throws InterruptedException {
-//        actor.attemptsTo(DoLogin.withEmail(email, password));
-        BrowseTheWeb.as(actor).waitFor(20000).milliseconds();
+    public void enteEmailAndPassword(Actor actor) {
+        BrowseTheWeb.as(actor).waitFor(15000).milliseconds();
     }
 }
