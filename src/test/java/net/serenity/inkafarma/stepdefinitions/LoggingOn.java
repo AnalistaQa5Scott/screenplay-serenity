@@ -3,28 +3,22 @@ package net.serenity.inkafarma.stepdefinitions;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import net.serenity.inkafarma.domain.Bases.*;
+import net.serenity.inkafarma.domain.Beans.*;
 import net.serenity.inkafarma.tasks.login.DoLogin;
 import net.serenity.inkafarma.tasks.login.LoginForm;
-import net.serenity.inkafarma.tasks.login.VisibleMessage;
 import net.serenity.inkafarma.tasks.navigate.Navigate;
-import net.serenity.inkafarma.tasks.utilities.UploadA;
 import net.serenitybdd.core.Serenity;
 import net.serenitybdd.screenplay.Actor;
-import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.abilities.BrowseTheWeb;
 import net.serenitybdd.screenplay.ensure.Ensure;
 import net.thucydides.core.annotations.Managed;
 import org.openqa.selenium.WebDriver;
 
 import java.io.IOException;
-import java.nio.file.Paths;
 import java.util.List;
 
 import static net.serenitybdd.screenplay.GivenWhenThen.givenThat;
 import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
-import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
-import static org.hamcrest.Matchers.equalTo;
 
 public class LoggingOn {
     @Managed(driver = "firefox")

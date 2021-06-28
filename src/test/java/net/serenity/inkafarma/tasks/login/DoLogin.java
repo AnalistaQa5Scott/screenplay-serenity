@@ -1,6 +1,6 @@
 package net.serenity.inkafarma.tasks.login;
 
-import net.serenity.inkafarma.domain.Bases.*;
+import net.serenity.inkafarma.domain.Beans.*;
 import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.*;
