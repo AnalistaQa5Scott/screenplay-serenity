@@ -13,8 +13,23 @@ import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisi
 
 public class DoLogin {
 
+    public static Performable withMultiplesAccounts(List<Credentials> credentials) {
+        switch (credentials.get(0).redSocial()) {
+            case "Facebook" -> {
+                return withFacebook(credentials);
+            }
+            case "Google" -> {
+                return withGoogle(credentials);
+            }
+            default -> {
+                return withEmail(credentials);
+            }
+        }
+    }
+
     public static Performable withFacebook(List<Credentials> credentials) {
         return Task.where("Enter credentials in Facebook form",
+                WaitUntil.the(LoginForm.SIG_IN_BUTTON, isVisible()).forNoMoreThan(10).seconds(),
                 Click.on(LoginForm.SIG_IN_BUTTON),
                 Click.on(LoginForm.SIG_IN_FACEBOOK),
                 Switch.toTheOtherWindow(),
@@ -28,6 +43,7 @@ public class DoLogin {
 
     public static Performable withGoogle(List<Credentials> credentials) {
         return Task.where("LoginForm with email",
+                WaitUntil.the(LoginForm.SIG_IN_BUTTON, isVisible()).forNoMoreThan(10).seconds(),
                 Click.on(LoginForm.SIG_IN_BUTTON),
                 Click.on(LoginForm.SIG_IN_GOOGLE),
                 Switch.toTheOtherWindow(),
@@ -40,17 +56,17 @@ public class DoLogin {
         );
     }
 
-    public static Performable withEmail(String email, String password) {
+    public static Performable withEmail(List<Credentials> credentials) {
         return Task.where("LoginForm with email",
+                WaitUntil.the(LoginForm.SIG_IN_BUTTON, isVisible()).forNoMoreThan(10).seconds(),
                 Click.on(LoginForm.SIG_IN_BUTTON),
                 WaitUntil.the(LoginForm.BTN_EMAIL, isVisible()),
                 Click.on(LoginForm.BTN_EMAIL),
-                Enter.theValue(email).into(LoginForm.INPUT_EMAIL),
-                Enter.theValue(password).into(LoginForm.INPUT_EPASSWORD),
+                Enter.theValue(credentials.get(0).email()).into(LoginForm.INPUT_EMAIL),
+                Enter.theValue(credentials.get(0).password()).into(LoginForm.INPUT_EPASSWORD),
                 WaitUntil.the(LoginForm.BTN_LOGIN_EMAIL, isVisible()),
                 Click.on(LoginForm.BTN_LOGIN_EMAIL),
                 WaitUntil.the(LoginForm.NAME_USER_LOGGED, isVisible()).forNoMoreThan(10).seconds()
         );
     }
-
 }

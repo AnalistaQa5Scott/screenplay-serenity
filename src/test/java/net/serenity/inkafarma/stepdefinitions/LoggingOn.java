@@ -46,14 +46,14 @@ public class LoggingOn {
     }
 
 
-    @When("{actor} tries to login with {} as {} with password {}")
-    public void loginWithRedSocialEmailPassword(Actor actor, String redSoacial, String email, String password) {
-
+    @When("{actor} tries to login with the following accounts")
+    public void loginWithRedSocialEmailPassword(Actor actor,List<Credentials> credentials) {
+        actor.attemptsTo(DoLogin.withMultiplesAccounts(credentials));
     }
 
-    @When("{actor} should be able to log in and see his name in the application")
+    @When("{actor} should be able to login in the application")
     public void enteEmailAndPassword(Actor actor, String email, String password) throws InterruptedException {
 //        actor.attemptsTo(DoLogin.withEmail(email, password));
-        BrowseTheWeb.as(actor).waitFor(8000).milliseconds();
+        BrowseTheWeb.as(actor).waitFor(20000).milliseconds();
     }
 }

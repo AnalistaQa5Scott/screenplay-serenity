@@ -10,6 +10,7 @@ public class DataTableTypeCucumber {
     @DataTableType
     public Credentials withUserAndPassword(Map<String, String> credentials) {
         return new Credentials(
+                credentials.get("RedSocial"),
                 credentials.get("Email"),
                 credentials.get("Password")
         );

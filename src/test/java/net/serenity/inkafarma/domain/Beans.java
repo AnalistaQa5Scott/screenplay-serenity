@@ -36,6 +36,7 @@ public class Beans {
     }
 
     public record Credentials(
+            String redSocial,
             String email,
             String password
     ) {

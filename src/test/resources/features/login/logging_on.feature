@@ -8,21 +8,25 @@ Business Need: Logging on
     Given Alexander is a loyal customer
 
 
-  Rule: Users must enter a correct email and password to connect
-    @LoginWithFacebook
-    Example: Alexander login with correct credentials
-      When he tries to login with facebook with the following details:
-        | Email                      | Password   |
-        | pruebascindi00@hotmail.com | Pruebas123 |
-      Then he should be able to log in and see his name
+#  Rule: Users must enter a correct email and password to connect
+#    @LoginWithFacebook
+#    Example: Alexander login with correct credentials
+#      When he tries to login with facebook with the following details:
+#        | Email                      | Password   |
+#        | pruebascindi00@hotmail.com | Pruebas123 |
+#      Then he should be able to log in and see his name
 
+    @LoginWithMultiplesAccounts
     Scenario Template: Alexander logs in with multiple accounts
-      When he tries to login with "<RedSocial>" as "<Email>" with password "<Password>"
-      Then he should be able to log in and see his name in the application
+      When he tries to login with the following accounts
+        | RedSocial   | Email   | Password   |
+        | <RedSocial> | <Email> | <Password> |
+      Then he should be able to login in the application
       Examples:
-        | RedSocial | Email                      | Password   |
-        | Facebook  | pruebascindi00@hotmail.com | Pruebas123 |
-        | Google    | pruebascindi@gmail.com     | Pruebas123 |
+        | RedSocial | Email                      | Password     |
+        | Facebook  | pruebascindi00@hotmail.com | Pruebas123   |
+        | Email     | test.inkaclub@gmail.com    | Inkaclub1234 |
+#      | Google    | pruebascindi@gmail.com     | Pruebas123 |
 
 
 #  Rule: Los usuarios deben ingresar un email y contraseña correctos para conectarse

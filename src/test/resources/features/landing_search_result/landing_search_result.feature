@@ -64,29 +64,3 @@
 ##      | 006096_2_Sobre, 207146_4_Blister                                                                  |
 ##      | 006096_2_Sobre, 207146_4_Blister                                                                  |
 ###
-##
-##  @Manual
-##  @Manual-result:failed
-##  @Manual-test-evidence:https://prnt.sc/10q7ew5
-##  Scenario: test 1
-##  Failure:Joe is showing as a high-risk customer
-##    Given Clive has made a purchase
-##    When he reviews his past orders
-##    Then he should be able to download his invoice as an PDF file
-##
-##  @Manual
-##  @Manual-result:passed
-##  @Manual-test-evidence:https://prnt.sc/10q7vl4
-##  Scenario: test 2
-##    Given Clive has made a purchase
-##    When he reviews his past orders
-##    Then he should be able to download his invoice as an PDF file
-##
-##
-##  @Manual
-##  @Manual-result:passed
-##  @Manual-test-evidence:https://prnt.sc/10q7vl4
-##  Scenario: test 3
-##    Given Clive has made a purchase
-##    When he reviews his past orders
-##    Then he should be able to download his invoice as an PDF file
