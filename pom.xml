@@ -170,6 +170,7 @@
                     <parallel>classes</parallel>
                     <parallel>methods</parallel>
                     <threadCount>${parallel.tests}</threadCount>
+                    <forkCount>${parallel.tests}</forkCount>
                     <perCoreThreadCount>true</perCoreThreadCount>
                     <useUnlimitedThreads>true</useUnlimitedThreads>
                 </configuration>
