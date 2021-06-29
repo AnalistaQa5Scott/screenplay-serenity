@@ -15,6 +15,7 @@
         <serenity.version>2.4.34</serenity.version>
         <serenity.maven.version>2.4.34</serenity.maven.version>
         <serenity.cucumber.version>2.4.34</serenity.cucumber.version>
+        <parallel.tests>4</parallel.tests>
         <!--        <serenity.take.screenshots>FOR_FAILURES</serenity.take.screenshots>-->
         <maven.surefire-plugin.version>3.0.0-M5</maven.surefire-plugin.version>
         <maven.failsafe-plugin.version>3.0.0-M5</maven.failsafe-plugin.version>
@@ -168,7 +169,7 @@
                     </systemPropertyVariables>
                     <parallel>classes</parallel>
                     <parallel>methods</parallel>
-                    <threadCount>4</threadCount>
+                    <threadCount>${parallel.tests}</threadCount>
                     <perCoreThreadCount>true</perCoreThreadCount>
                     <useUnlimitedThreads>true</useUnlimitedThreads>
                 </configuration>
@@ -210,19 +211,6 @@
                     <tags>${tags}</tags>
                     <reports>single-page-html,navigator</reports>
                 </configuration>
-                <!--                    </dependency>-->
-                <!--                </dependencies>-->
-                <!--                <configuration>-->
-                <!--                    <tags>${tags}</tags>-->
-                <!--                    <reports>single-page-html</reports>-->
-                <!--                </configuration>-->
-                <!--                <dependencies>-->
-                <!--                    <dependency>-->
-                <!--                        <groupId>net.serenity-bdd</groupId>-->
-                <!--                        <artifactId>serenity-core</artifactId>-->
-                <!--                        <version>${serenity.version}</version>-->
-                <!--                    </dependency>-->
-                <!--                </dependencies>-->
                 <executions>
                     <execution>
                         <id>serenity-reports</id>
