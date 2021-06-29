@@ -11,6 +11,7 @@ import net.serenitybdd.core.Serenity;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.abilities.BrowseTheWeb;
 import net.serenitybdd.screenplay.ensure.Ensure;
+import net.serenitybdd.screenplay.waits.WaitUntil;
 import net.thucydides.core.annotations.Managed;
 import org.openqa.selenium.WebDriver;
 
@@ -19,6 +20,7 @@ import java.util.List;
 
 import static net.serenitybdd.screenplay.GivenWhenThen.givenThat;
 import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
+import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible;
 
 public class LoggingOn {
     @Managed(driver = "firefox")
@@ -45,14 +47,19 @@ public class LoggingOn {
 //        actor.should(seeThat(VisibleMessage.nameLogged(), equalTo("Alexander Garcia")));
     }
 
-
     @When("{actor} tries to login with the following accounts")
-    public void loginWithRedSocialEmailPassword(Actor actor,List<Credentials> credentials) {
+    public void loginWithRedSocialEmailPassword(Actor actor, List<Credentials> credentials) {
         actor.attemptsTo(DoLogin.withMultiplesAccounts(credentials));
     }
 
-    @When("{actor} should be able to login in the application")
-    public void enteEmailAndPassword(Actor actor) {
-        BrowseTheWeb.as(actor).waitFor(15000).milliseconds();
+    @When("{actor} should see his {string} within the application")
+    public void heShouldSeeHisName(Actor actor, String name) {
+        actor.attemptsTo(
+                WaitUntil.the(LoginForm.NAME_USER_LOGGED, isVisible())
+                        .forNoMoreThan(10).seconds(),
+                Ensure.that(LoginForm.NAME_USER_LOGGED).hasText(name),
+                DoLogin.andSignOff()
+        );
+        BrowseTheWeb.as(actor).waitFor(2).seconds();
     }
 }

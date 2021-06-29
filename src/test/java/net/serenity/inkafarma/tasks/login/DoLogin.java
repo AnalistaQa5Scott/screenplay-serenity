@@ -8,17 +8,25 @@ import net.serenitybdd.screenplay.waits.WaitUntil;
 import org.openqa.selenium.Keys;
 
 import java.util.List;
+import java.util.Locale;
 
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible;
 
 public class DoLogin {
 
+    public static Performable andSignOff(){
+        return Task.where("{0} close session",
+                Click.on(LoginForm.USER_LOGGED),
+                Click.on(LoginForm.SIGN_OFF)
+                );
+    }
+
     public static Performable withMultiplesAccounts(List<Credentials> credentials) {
-        switch (credentials.get(0).redSocial()) {
-            case "Facebook" -> {
+        switch (credentials.get(0).redSocial().toLowerCase()) {
+            case "facebook" -> {
                 return withFacebook(credentials);
             }
-            case "Google" -> {
+            case "google" -> {
                 return withGoogle(credentials);
             }
             default -> {

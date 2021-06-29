@@ -8,7 +8,7 @@ Business Need: Logging on
     Given Alexander is a loyal customer
 
 
-#  Rule: Users must enter a correct email and password to connect
+  Rule: Users must enter a correct email and password to connect
 #    @LoginWithFacebook
 #    Example: Alexander login with correct credentials
 #      When he tries to login with facebook with the following details:
@@ -21,11 +21,11 @@ Business Need: Logging on
       When he tries to login with the following accounts
         | RedSocial   | Email   | Password   |
         | <RedSocial> | <Email> | <Password> |
-      Then he should be able to login in the application
+      Then he should see his "<name>" within the application
       Examples:
-        | RedSocial | Email                      | Password     |
-        | Facebook  | pruebascindi00@hotmail.com | Pruebas123   |
-        | Email     | test.inkaclub@gmail.com    | Inkaclub1234 |
+        | RedSocial | Email                      | Password     | name             |
+        | Facebook  | pruebascindi00@hotmail.com | Pruebas123   | Alexander Garcia |
+        | Email     | test.inkaclub@gmail.com    | Inkaclub1234 | inkafarma prueba |
 #      | Google    | pruebascindi@gmail.com     | Pruebas123 |
 
 

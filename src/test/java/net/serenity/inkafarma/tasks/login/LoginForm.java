@@ -38,7 +38,11 @@ public class LoginForm {
 
     //region MENU LOGGED
     public static Target NAME_USER_LOGGED = Target.the("user logged")
-            .locatedBy(".menu-logged .user-name");
+            .locatedBy("#loginOk .user-name");
+    public static Target USER_LOGGED = Target.the("Logging ok")
+            .locatedBy("#loginOk");
+    public static Target SIGN_OFF = Target.the("sign off")
+            .locatedBy("#lb--sign-off");
     //endregion
 
     //region LOGIN ANONYMOUS
