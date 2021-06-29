@@ -51,6 +51,7 @@ public class LoggingOn {
     @When("{actor} tries to login with the following accounts")
     public void loginWithRedSocialEmailPassword(Actor alexander, List<Credentials> credentials) {
         alexander.attemptsTo(DoLogin.withMultiplesAccounts(credentials));
+        BrowseTheWeb.as(alexander).waitFor(2).seconds();
     }
 
     @When("{actor} should see his {string} within the application")
@@ -61,6 +62,5 @@ public class LoggingOn {
                 Ensure.that(LoginForm.NAME_USER_LOGGED).hasText(name),
                 DoLogin.andSignOff()
         );
-        BrowseTheWeb.as(alexander).waitFor(1).seconds();
     }
 }

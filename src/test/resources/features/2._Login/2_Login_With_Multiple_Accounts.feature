@@ -1,5 +1,5 @@
 @Login
-Business Need: Logging on
+Business Need: Login with multiple accounts
   As a digital product manager
   I want users to be able to login with their account
   to buy new items and access your order history

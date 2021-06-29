@@ -44,8 +44,7 @@ public class DoLogin {
                 WaitUntil.the(LoginForm.FACEBOOK_EMAIL_FIELD, isVisible()).forNoMoreThan(10).seconds(),
                 Enter.theValue(credentials.get(0).email()).into(LoginForm.FACEBOOK_EMAIL_FIELD).thenHit(Keys.TAB),
                 Enter.theValue(credentials.get(0).password()).into(LoginForm.FACEBOOK_PASS_FIELD).thenHit(Keys.ENTER),
-                Switch.toTheOtherWindow(),
-                WaitUntil.the(LoginForm.NAME_USER_LOGGED, isVisible()).forNoMoreThan(10).seconds()
+                Switch.toTheOtherWindow()
         );
     }
 
@@ -59,8 +58,7 @@ public class DoLogin {
                 Enter.theValue(credentials.get(0).email()).into(LoginForm.GOOGLE_EMAIL_FIELD).thenHit(Keys.ENTER),
                 WaitUntil.the(LoginForm.GOOGLE_PASSWORD_FIELD, isVisible()).forNoMoreThan(10).seconds(),
                 Enter.theValue(credentials.get(0).password()).into(LoginForm.GOOGLE_PASSWORD_FIELD).thenHit(Keys.ENTER),
-                Switch.toTheOtherWindow(),
-                WaitUntil.the(LoginForm.NAME_USER_LOGGED, isVisible()).forNoMoreThan(10).seconds()
+                Switch.toTheOtherWindow()
         );
     }
 
@@ -73,8 +71,7 @@ public class DoLogin {
                 Enter.theValue(credentials.get(0).email()).into(LoginForm.INPUT_EMAIL),
                 Enter.theValue(credentials.get(0).password()).into(LoginForm.INPUT_EPASSWORD),
                 WaitUntil.the(LoginForm.BTN_LOGIN_EMAIL, isVisible()),
-                Click.on(LoginForm.BTN_LOGIN_EMAIL),
-                WaitUntil.the(LoginForm.NAME_USER_LOGGED, isVisible()).forNoMoreThan(10).seconds()
+                Click.on(LoginForm.BTN_LOGIN_EMAIL)
         );
     }
 }
