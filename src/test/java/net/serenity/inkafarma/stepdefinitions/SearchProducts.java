@@ -16,8 +16,8 @@ public class SearchProducts {
     }
 
     @When("{actor} tries to search by name or brand {string}")
-    public void heTriesToSearchByNameOrBrand(Actor actor,String productNameOrBrand) {
-        actor.attemptsTo(SearchProduct.byNameOrBrand(productNameOrBrand));
+    public void heTriesToSearchByNameOrBrand(Actor actor, String productNameOrBrand) {
+        actor.attemptsTo(SearchProduct.byNameOrBrandOrSKU(productNameOrBrand));
     }
 
     @Then("{actor} should see all the results for the matching products")

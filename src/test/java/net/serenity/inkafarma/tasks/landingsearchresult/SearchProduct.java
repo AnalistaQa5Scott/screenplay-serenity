@@ -11,7 +11,7 @@ import org.openqa.selenium.Keys;
 
 public class SearchProduct {
 
-    public static Performable byNameOrBrand(String productNameOrBrand) {
+    public static Performable byNameOrBrandOrSKU(String productNameOrBrand) {
         return Task.where("{0} Search product by name or brand",
                 Enter.theValue(productNameOrBrand).into(LandingSearchResultPage.SEARCH_FIELD),
                 WaitUntil.the(LandingSearchResultPage.SEE_ALL_RESULTS_BUTTON,
