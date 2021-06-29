@@ -30,14 +30,15 @@ public class DownloadTheApp {
 //    @Managed(driver = "chrome", options = "--headless")
     private WebDriver hisBrowser;
 
-    @Before public void jamesCanBrowseTheWeb() {
+    @Before
+    public void jamesCanBrowseTheWeb() {
         james.can(BrowseTheWeb.with(hisBrowser));
     }
 
     @Test
     public void should_be_able_to_download_the_application() {
 
-        givenThat(james).wasAbleTo(Open.url("http://todomvc.com/"));
+        james.wasAbleTo(Open.url("http://todomvc.com/"));
 
         List<String> dl;
 

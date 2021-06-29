@@ -7,7 +7,6 @@ Business Need: Logging on
   Background:
     Given Alexander is a loyal customer
 
-
   Rule: Users must enter a correct email and password to connect
 #    @LoginWithFacebook
 #    Example: Alexander login with correct credentials

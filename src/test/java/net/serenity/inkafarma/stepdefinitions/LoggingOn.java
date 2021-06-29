@@ -13,6 +13,7 @@ import net.serenitybdd.screenplay.abilities.BrowseTheWeb;
 import net.serenitybdd.screenplay.ensure.Ensure;
 import net.serenitybdd.screenplay.waits.WaitUntil;
 import net.thucydides.core.annotations.Managed;
+import org.junit.Before;
 import org.openqa.selenium.WebDriver;
 
 import java.io.IOException;
@@ -23,24 +24,24 @@ import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible;
 
 public class LoggingOn {
-    @Managed(driver = "firefox")
-    public WebDriver driver;
 
+    @Managed(driver = "chrome") //, options = "--headless")
+    public WebDriver hisBrowser;
 
     @Given("{actor} is a loyal customer")
-    public void alexIsALoyalCustomer(Actor actor) {
-        givenThat(actor.can(BrowseTheWeb.with(driver)));
-        actor.wasAbleTo(Navigate.toTheHomePage());
+    public void alexIsALoyalCustomer(Actor alexander) {
+        givenThat(alexander.can(BrowseTheWeb.with(hisBrowser)));
+        alexander.wasAbleTo(Navigate.toTheHomePage());
     }
 
     @When("{actor} tries to login with facebook with the following details:")
-    public void alexLoginWithFacebook(Actor actor, List<Credentials> credentials) {
-        actor.attemptsTo(DoLogin.withFacebook(credentials));
+    public void alexLoginWithFacebook(Actor alexander, List<Credentials> credentials) {
+        alexander.attemptsTo(DoLogin.withFacebook(credentials));
     }
 
     @Then("{actor} should be able to log in and see his name")
-    public void shouldSeeHisName(Actor actor) throws IOException {
-        actor.attemptsTo(
+    public void shouldSeeHisName(Actor alexander) throws IOException {
+        alexander.attemptsTo(
                 Ensure.that(LoginForm.NAME_USER_LOGGED).hasText("Alexander Garcia")
         );
         Serenity.recordReportData().withTitle("Name Logged").andContents("My name is Alexander Garcia");
@@ -48,18 +49,18 @@ public class LoggingOn {
     }
 
     @When("{actor} tries to login with the following accounts")
-    public void loginWithRedSocialEmailPassword(Actor actor, List<Credentials> credentials) {
-        actor.attemptsTo(DoLogin.withMultiplesAccounts(credentials));
+    public void loginWithRedSocialEmailPassword(Actor alexander, List<Credentials> credentials) {
+        alexander.attemptsTo(DoLogin.withMultiplesAccounts(credentials));
     }
 
     @When("{actor} should see his {string} within the application")
-    public void heShouldSeeHisName(Actor actor, String name) {
-        actor.attemptsTo(
+    public void heShouldSeeHisName(Actor alexander, String name) {
+        alexander.attemptsTo(
                 WaitUntil.the(LoginForm.NAME_USER_LOGGED, isVisible())
                         .forNoMoreThan(10).seconds(),
                 Ensure.that(LoginForm.NAME_USER_LOGGED).hasText(name),
                 DoLogin.andSignOff()
         );
-        BrowseTheWeb.as(actor).waitFor(2).seconds();
+        BrowseTheWeb.as(alexander).waitFor(1).seconds();
     }
 }
