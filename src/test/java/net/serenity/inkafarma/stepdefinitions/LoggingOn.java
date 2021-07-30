@@ -3,7 +3,7 @@ package net.serenity.inkafarma.stepdefinitions;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import net.serenity.inkafarma.domain.Beans.*;
+import net.serenity.inkafarma.model.Beans.*;
 import net.serenity.inkafarma.tasks.login.DoLogin;
 import net.serenity.inkafarma.tasks.login.LoginForm;
 import net.serenity.inkafarma.tasks.navigate.Navigate;
@@ -13,7 +13,6 @@ import net.serenitybdd.screenplay.abilities.BrowseTheWeb;
 import net.serenitybdd.screenplay.ensure.Ensure;
 import net.serenitybdd.screenplay.waits.WaitUntil;
 import net.thucydides.core.annotations.Managed;
-import org.junit.Before;
 import org.openqa.selenium.WebDriver;
 
 import java.io.IOException;

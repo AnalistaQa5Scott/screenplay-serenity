@@ -1,10 +1,10 @@
-package net.serenity.inkafarma.domain;
+package net.serenity.inkafarma.model;
 
-import net.serenity.inkafarma.domain.Beans.*;
+import net.serenity.inkafarma.model.Beans.*;
 import com.typesafe.config.Config;
 import com.typesafe.config.ConfigFactory;
 
-public class Data {
+public class DataConfig {
 
     private static final Config deliveryTypeDetails =
             ConfigFactory.load("data/users");

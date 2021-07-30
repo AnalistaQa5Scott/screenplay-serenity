@@ -1,8 +1,4 @@
-package net.serenity.inkafarma.domain;
-
-import io.cucumber.java.DataTableType;
-
-import java.util.Map;
+package net.serenity.inkafarma.model;
 
 public class Beans {
 

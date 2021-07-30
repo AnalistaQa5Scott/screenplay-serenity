@@ -4,7 +4,7 @@ import net.serenitybdd.screenplay.Question;
 
 public class Alerts {
 
-    public static Question<Boolean> forOnsignalIsVisible() {
+    public static Question<Boolean> forOnesignalIsVisible() {
         return actor -> HomePage.NO_ACCEPT_ONESIGNAL_POPUP.resolveFor(actor).isCurrentlyVisible();
     }
 

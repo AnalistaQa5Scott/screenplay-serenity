@@ -1,7 +1,7 @@
-package net.serenity.inkafarma.domain;
+package net.serenity.inkafarma.model;
 
 import io.cucumber.java.DataTableType;
-import net.serenity.inkafarma.domain.Beans.*;
+import net.serenity.inkafarma.model.Beans.*;
 
 import java.util.Map;
 

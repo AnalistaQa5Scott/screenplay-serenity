@@ -1,6 +1,6 @@
 package net.serenity.inkafarma.tasks.login;
 
-import net.serenity.inkafarma.domain.Beans.*;
+import net.serenity.inkafarma.model.Beans.*;
 import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.*;
@@ -8,7 +8,6 @@ import net.serenitybdd.screenplay.waits.WaitUntil;
 import org.openqa.selenium.Keys;
 
 import java.util.List;
-import java.util.Locale;
 
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible;
 
