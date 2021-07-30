@@ -31,6 +31,13 @@ public class Beans {
     ) {
     }
 
+    public record Skus(
+            String sku,
+            String presentation,
+            String quantity
+    ) {
+    }
+
     public record Credentials(
             String redSocial,
             String email,

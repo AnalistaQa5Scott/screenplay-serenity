@@ -6,7 +6,7 @@ public class exect {
     static Anonymous AnonymousDetails;
 
     public static void main(String[] args) {
-        AnonymousDetails = DataConfig.findAnonymousByName("Alexander");
+        AnonymousDetails = DataConfig.findAnonymousByName("Claude");
         System.out.println(AnonymousDetails.email());
 //        Random random = new Random();
 //        System.out.println(AnonymousDetails.email().split(",")[random.nextInt(3)]);
